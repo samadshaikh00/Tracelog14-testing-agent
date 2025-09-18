@@ -1,0 +1,381 @@
+[
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "agent-login,-ready-state-verification,-and-manual-calling;multiple-agents-login,-go-ready,-and-make-manual-calls",
+        "keyword": "Scenario Outline",
+        "line": 23,
+        "name": "Multiple agents login, go ready, and make manual calls",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 867036
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have loaded agents from CSV",
+            "match": {
+              "location": "features/step_definitions/steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14633194
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "I am on the login page for agent from row 0",
+            "match": {
+              "location": "features/step_definitions/steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1708113483
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I login with credentials from CSV row 0",
+            "match": {
+              "location": "features/step_definitions/steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3370109006
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should be redirected to the dashboard",
+            "match": {
+              "location": "features/step_definitions/steps.js:37"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 8453389,
+              "error_message": "AssertionError: expected 'https://tracelog14.slashrtc.in/index.…' to not include '/login'\n    at CustomWorld.<anonymous> (/home/intern/samad/testing-Tracelog14/agent_test/xyz/features/step_definitions/steps.js:39:22)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I click on remote endpoint button",
+            "match": {
+              "location": "features/step_definitions/steps.js:65"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I should be in ready state",
+            "match": {
+              "location": "features/step_definitions/steps.js:94"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I dial number \"9167603956\" and make the call",
+            "match": {
+              "location": "features/step_definitions/steps.js:117"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "I should see call connecting state",
+            "match": {
+              "location": "features/step_definitions/steps.js:195"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I simulate customer answering the call",
+            "match": {
+              "location": "features/step_definitions/steps.js:246"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I end the call",
+            "match": {
+              "location": "features/step_definitions/steps.js:261"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I select dispose tag \"Test Call\"",
+            "match": {
+              "location": "features/step_definitions/steps.js:336"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I should return to ready state",
+            "match": {
+              "location": "features/step_definitions/steps.js:517"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1014140505
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "agent-login,-ready-state-verification,-and-manual-calling;multiple-agents-login,-go-ready,-and-make-manual-calls",
+        "keyword": "Scenario Outline",
+        "line": 24,
+        "name": "Multiple agents login, go ready, and make manual calls",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 367575
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 4,
+            "name": "I have loaded agents from CSV",
+            "match": {
+              "location": "features/step_definitions/steps.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 523151
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 5,
+            "name": "I am on the login page for agent from row 1",
+            "match": {
+              "location": "features/step_definitions/steps.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1697515016
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "I login with credentials from CSV row 1",
+            "match": {
+              "location": "features/step_definitions/steps.js:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3126696013
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "I should be redirected to the dashboard",
+            "match": {
+              "location": "features/step_definitions/steps.js:37"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 2019268,
+              "error_message": "AssertionError: expected 'https://tracelog14.slashrtc.in/index.…' to not include '/login'\n    at CustomWorld.<anonymous> (/home/intern/samad/testing-Tracelog14/agent_test/xyz/features/step_definitions/steps.js:39:22)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "I click on remote endpoint button",
+            "match": {
+              "location": "features/step_definitions/steps.js:65"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 11,
+            "name": "I should be in ready state",
+            "match": {
+              "location": "features/step_definitions/steps.js:94"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 14,
+            "name": "I dial number \"9167603956\" and make the call",
+            "match": {
+              "location": "features/step_definitions/steps.js:117"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 15,
+            "name": "I should see call connecting state",
+            "match": {
+              "location": "features/step_definitions/steps.js:195"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 16,
+            "name": "I simulate customer answering the call",
+            "match": {
+              "location": "features/step_definitions/steps.js:246"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 17,
+            "name": "I end the call",
+            "match": {
+              "location": "features/step_definitions/steps.js:261"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "I select dispose tag \"Test Call\"",
+            "match": {
+              "location": "features/step_definitions/steps.js:336"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I should return to ready state",
+            "match": {
+              "location": "features/step_definitions/steps.js:517"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 937983813
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "agent-login,-ready-state-verification,-and-manual-calling",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Agent Login, Ready State Verification, and Manual Calling",
+    "tags": [],
+    "uri": "features/login.feature"
+  }
+]
