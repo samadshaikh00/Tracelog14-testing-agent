@@ -1,0 +1,17 @@
+module.exports = {
+  default: {
+    parallel: 1, // Will be overridden by command line argument
+    require: [
+      'features/step_definitions/**/*.js',
+      'features/support/**/*.js'
+    ],
+    format: [
+      'progress-bar',
+      'html:reports/cucumber-report.html',
+      'json:reports/cucumber-report.json'
+    ],
+    worldParameters: {
+      headless: true
+    }
+  }
+};
