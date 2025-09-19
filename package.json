@@ -6,7 +6,7 @@
   "scripts": {
     "test": "cucumber-js",
     "test:parallel": "cucumber-js --parallel",
-    "test:workers": "cucumber-js --parallel 5"
+    "test:workers": "cucumber-js --parallel 1"
   },
   "keywords": [],
   "author": "",

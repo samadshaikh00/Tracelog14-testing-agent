@@ -1,6 +1,6 @@
 module.exports = {
   default: {
-    parallel: 1, // Will be overridden by command line argument
+    parallel: 1,
     require: [
       'features/step_definitions/**/*.js',
       'features/support/**/*.js'
@@ -15,3 +15,4 @@ module.exports = {
     }
   }
 };
+

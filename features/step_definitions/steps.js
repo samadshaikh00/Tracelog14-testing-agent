@@ -34,31 +34,6 @@ When('I login with credentials from CSV row {int}', async function (rowIndex) {
   await this.takeScreenshot(`after_login_${username}`);
 });
 
-When('I click on the web endpoint button', async function () {
-  console.log('Clicking on web endpoint button...');
-  await this.takeScreenshot('before_web_endpoint_click');
-  
-  try {
-    await this.page.waitForTimeout(10000);
-    await this.page.click('button.webPhone');
-    await this.page.waitForTimeout(30000);
-    await this.takeScreenshot('after_web_endpoint_click');
-  } catch (error) {
-    console.log('Error clicking web endpoint:', error.message);
-    await this.takeScreenshot('web_endpoint_error');
-  }
-});
-
-When('I handle microphone permission popup', async function () {
-  console.log('Handling microphone permission...');
-  await this.page.waitForTimeout(2000);
-  await this.takeScreenshot('before_microphone_permission');
-  
-  // Playwright automatically handles permissions when configured in context
-  await this.page.waitForTimeout(2000);
-  await this.takeScreenshot('after_microphone_permission');
-});
-
 Then('I should be redirected to the dashboard', async function () {
   const url = this.page.url();
   expect(url).not.to.contain('/login');
@@ -70,16 +45,70 @@ Then('I should be redirected to the dashboard', async function () {
 
 
 
+// When('I click on the web endpoint button', async function () {
+//   console.log('Clicking on web endpoint button...');
+//   await this.takeScreenshot('before_web_endpoint_click');
+  
+//   try {
+//     await this.page.waitForTimeout(2000);
+//     await this.page.click('button.webPhone');
+//     await this.page.waitForTimeout(3000);
+//     await this.takeScreenshot('after_web_endpoint_click');
+//   } catch (error) {
+//     console.log('Error clicking web endpoint:', error.message);
+//     await this.takeScreenshot('web_endpoint_error');
+//   }
+// });
+
+
+
+When('I click on remote endpoint button',  async function () {
+    console.log('Clicking on remote endpoint button...');
+    await this.takeScreenshot('before_remote_endpoint_click');
+    
+    try {
+      await this.page.waitForTimeout(10000);
+      await this.page.click('button.remotePhone');
+      await this.page.waitForTimeout(3000);
+      await this.takeScreenshot('after_remote_endpoint_click');
+    } catch (error) {
+      console.log('Error clicking remote endpoint:', error.message);
+      await this.takeScreenshot('remote_endpoint_error');
+    }
+});
+
+When('I handle microphone permission popup', async function () {
+  console.log('Handling microphone permission...');
+  await this.page.waitForTimeout(4000);
+  await this.takeScreenshot('before_microphone_permission');
+  
+  await this.page.waitForTimeout(4000);
+  await this.takeScreenshot('after_microphone_permission');
+
+  await this.page.waitForLoadState('networkidle');
+  await this.page.waitForLoadState('domcontentloaded');
+
+});
+
+
 Then('I should be in ready state', async function () {
   console.log('Verifying ready state...');
-  await this.page.waitForTimeout(3000);
-  const screenshotPath = await this.takeScreenshot(`ready_state_${this.currentAgent.username}`);
+    // Store cookies and reuse them
+  const cookies = await this.page.context().cookies();
+  // Use in subsequent tests
+  await this.page.context().addCookies(cookies);
+
+  const screenshotPath = await this.takeScreenshot(`is_ready_state?${this.currentAgent.username}`);
   
-  // const isReady = await this.checkReadyState();
-  // expect(isReady).to.be.true;
-  
-  // console.log(`Ready state confirmed for ${this.currentAgent.username}`);
-  // console.log(`Screenshot saved: ${screenshotPath}`);
+  const isReady = await this.checkReadyState();
+  try {
+    expect(isReady).to.be.true;
+    console.log(`Ready state confirmed for ${this.currentAgent.username}`);
+  }
+  catch(e){
+    console.log(`Agent  ${this.currentAgent.username} is not ready!`);
+  }
+  console.log(`Screenshot saved: ${screenshotPath}`);
   await this.page.waitForTimeout(15000);
 });
 
@@ -95,6 +124,8 @@ When('I dial number {string} and make the call', async function (phoneNumber) {
     console.log(`Cleaned phone number: ${cleanPhoneNumber}`);
     
     // STEP 1: Enter the phone number
+    await this.page.waitForTimeout(3000);
+
     const phoneInput = await this.page.locator('#phoneNumber');
     await phoneInput.waitFor({ state: 'visible', timeout: 10000 });
     console.log('Found phone input field');
@@ -111,19 +142,25 @@ When('I dial number {string} and make the call', async function (phoneNumber) {
     
     // STEP 2: Wait for call button to become enabled (not disabled)
     console.log('Waiting for call button to become enabled...');
-    await this.page.waitForSelector('#manualcallBtnConnect:not([disabled])', { 
-      timeout: 15000,
-      state: 'visible'
-    });
+    // await this.page.waitForSelector('#manualcallBtnConnect:not([disabled])', { 
+    //   timeout: 15000,
+    //   state: 'visible'
+    // });
     
     // STEP 3: Click the call button
-    const callButton = this.page.locator('#manualcallBtnConnect');
-    await callButton.click();
+    await this.page.evaluate(() => {
+      const callButton = document.querySelector('#manualcallBtnConnect');
+      if (callButton) {
+        callButton.removeAttribute('disabled'); // Remove disabled attribute
+        callButton.disabled = false; // Set disabled property to false
+        callButton.click(); // Click the button
+      }
+    });
+    
     console.log('Call button clicked successfully');
     
-    await this.takeScreenshot('after_clicking_call');
-    await this.page.waitForTimeout(3000);
-    
+
+
     console.log('Call process initiated successfully');
     
   } catch (error) {

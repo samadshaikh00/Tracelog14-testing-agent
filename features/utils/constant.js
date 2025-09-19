@@ -1,0 +1,9 @@
+export const BASE_URL = 'https://tracelog14.slashrtc.in/index.php/login';
+export const USERNAME = 'testInternAdmin';
+export const PASSWORD = 'Admin@12';
+export const CAMPAIGN_MANAGE_PAGE = '/site/viewcampaign';
+export const PROCESSES_MANAGE_PAGE = '/site/viewcampaign';
+export const CREATE_PROCESS_PAGE = '/site/createprocess';
+export const CREATE_CAMPAIGN_PAGE = '/site/createcampaign';
+export const CREATE_AGENT_PAGE = '/site/createuser';
+export const CREATE_USER_PAGE = '/site/createuser';
