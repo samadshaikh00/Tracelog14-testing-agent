@@ -1,21 +1,17 @@
 {
-  "name": "slashtest",
+  "name": "testing",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cucumber-js",
-    "test:parallel": "cucumber-js --parallel",
-    "test:workers": "cucumber-js --parallel 1"
+    "test": "cucumber-js --require 'features/**/*.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "@cucumber/cucumber": "^12.2.0",
-    "@playwright/test": "^1.55.0",
-    "chai": "^6.0.1",
-    "csv-parser": "^3.2.0",
-    "fs-extra": "^11.3.2"
+    "assert": "^2.1.0",
+    "playwright": "^1.55.0"
   }
 }
